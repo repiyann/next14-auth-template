@@ -1,9 +1,8 @@
 import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
-import { cookies } from 'next/headers'
 
 export default async function middleware(req: NextRequest) {
-	const token = cookies().get('session')?.value
+	const token = req.cookies.get('session')?.value
 	const { pathname } = req.nextUrl
 
 	const adminRoutes = new Set(['/admin/dashboard'])

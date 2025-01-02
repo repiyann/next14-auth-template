@@ -30,3 +30,8 @@ export interface ProfileProps {
 	isEmailVerified: boolean
 	isAdmin: boolean
 }
+
+export interface VerificationCardProps {
+	isAdmin?: boolean
+	errorMessage?: string
+}

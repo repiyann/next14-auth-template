@@ -1,7 +1,7 @@
 import { cookies } from 'next/headers'
 import ResendEmailVerification from './form'
 
-export default async function VerifyEmailPage() {
+export default async function VerifyEmailNotification() {
 	const sessionCookie = cookies().get('session');
   const token = sessionCookie ? sessionCookie.value : 'awawa';
 
