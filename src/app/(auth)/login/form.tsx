@@ -2,14 +2,12 @@
 
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
-
 import { z } from 'zod'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { loginSchema } from '@/schema/auth'
 import api from '@/lib/api'
 import { setSessionCookie } from '@/lib/auth'
-
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import {
@@ -22,7 +20,7 @@ import {
 } from '@/components/ui/form'
 import { toast } from 'sonner'
 
-export function LoginForm() {
+export default function LoginForm() {
 	const router = useRouter()
 
 	const form = useForm<z.infer<typeof loginSchema>>({
@@ -73,7 +71,7 @@ export function LoginForm() {
 								<FormItem>
 									<FormLabel>Email</FormLabel>
 									<FormControl>
-										<Input placeholder="Enter email" {...field} />
+										<Input placeholder="Enter your email" {...field} />
 									</FormControl>
 									<FormMessage />
 								</FormItem>
@@ -98,7 +96,7 @@ export function LoginForm() {
 									<FormControl>
 										<Input
 											type="password"
-											placeholder="Enter password"
+											placeholder="Enter your password"
 											{...field}
 										/>
 									</FormControl>

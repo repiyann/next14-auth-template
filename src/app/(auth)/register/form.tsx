@@ -7,7 +7,6 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { registerSchema } from '@/schema/auth'
 import api from '@/lib/api'
 import { setSessionCookie } from '@/lib/auth'
-
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import {
@@ -20,7 +19,7 @@ import {
 } from '@/components/ui/form'
 import { toast } from 'sonner'
 
-export function RegisterForm() {
+export default function RegisterForm() {
 	const router = useRouter()
 
 	const form = useForm<z.infer<typeof registerSchema>>({
@@ -58,9 +57,9 @@ export function RegisterForm() {
 				className="flex flex-col gap-6"
 			>
 				<div className="flex flex-col items-center gap-2 text-center">
-					<h1 className="text-2xl font-bold">Create a new account</h1>
+					<h1 className="text-2xl font-bold">Sign up for a new account</h1>
 					<p className="text-balance text-sm text-muted-foreground">
-						Enter your details to create a new account.
+						Fill in the details to create your account.
 					</p>
 				</div>
 				<div className="grid gap-6">
@@ -72,7 +71,7 @@ export function RegisterForm() {
 								<FormItem>
 									<FormLabel>Fullname</FormLabel>
 									<FormControl>
-										<Input placeholder="Enter full name" {...field} />
+										<Input placeholder="Enter your full name" {...field} />
 									</FormControl>
 									<FormMessage />
 								</FormItem>
@@ -87,7 +86,7 @@ export function RegisterForm() {
 								<FormItem>
 									<FormLabel>Email</FormLabel>
 									<FormControl>
-										<Input placeholder="Enter email" {...field} />
+										<Input placeholder="Enter your email" {...field} />
 									</FormControl>
 									<FormMessage />
 								</FormItem>
@@ -104,7 +103,7 @@ export function RegisterForm() {
 									<FormControl>
 										<Input
 											type="password"
-											placeholder="Enter password"
+											placeholder="Enter your password"
 											{...field}
 										/>
 									</FormControl>
@@ -123,7 +122,7 @@ export function RegisterForm() {
 									<FormControl>
 										<Input
 											type="password"
-											placeholder="Enter password confirmation"
+											placeholder="Confirm your password"
 											{...field}
 										/>
 									</FormControl>
