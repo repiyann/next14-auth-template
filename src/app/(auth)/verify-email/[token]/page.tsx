@@ -14,8 +14,11 @@ export default async function VerifyEmailConfirmation({
 
 	try {
 		const response = await api.get(`/auth/verify/email/${token}`, {
-			data: { token: session },
+			headers: {
+				Authorization: `Bearer ${session}`,
+			},
 		})
+
 		isAdmin = response.data
 	} catch (error) {
 		errorMessage =

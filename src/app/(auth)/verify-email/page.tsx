@@ -2,8 +2,7 @@ import { cookies } from 'next/headers'
 import ResendEmailVerification from './form'
 
 export default async function VerifyEmailNotification() {
-	const sessionCookie = cookies().get('session');
-  const token = sessionCookie ? sessionCookie.value : 'awawa';
+	const token = cookies().get('session')!.value
 
 	return (
 		<div className="min-h-screen flex items-center justify-center bg-gray-100">

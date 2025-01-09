@@ -12,7 +12,9 @@ export default function ResendEmailVerification({ token }: TokenProps) {
 		toast.dismiss()
 		try {
 			await api.post('/auth/verify/email/request', {
-				token: token,
+				headers: {
+					Authorization: `Bearer ${token}`,
+				},
 			})
 
 			toast.success('Successfully registered')
