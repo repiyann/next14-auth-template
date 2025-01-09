@@ -9,12 +9,6 @@ const api = axios.create({
 
 api.interceptors.request.use(
 	(config) => {
-		const data = config.data
-		const token = config.data.token
-		if (data && token) {
-			config.headers.Authorization = `Bearer ${token}`
-		}
-
 		return config
 	},
 	(error) => {
