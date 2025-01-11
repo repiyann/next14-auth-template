@@ -35,3 +35,21 @@ export interface VerificationCardProps {
 	isAdmin?: boolean
 	errorMessage?: string
 }
+
+export interface VerificationPasswordCardProps {
+	token: string
+	errorMessage?: string
+}
+
+interface User {
+	id: string
+	fullName: string
+	email: string
+	isEmailVerified: boolean
+	isAdmin: boolean
+}
+
+export interface UsersTableProps {
+	users: User[]
+	token: string
+}

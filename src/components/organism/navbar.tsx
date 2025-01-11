@@ -8,7 +8,9 @@ import { UserNav } from './user-nav'
 export async function Navbar() {
 	const token = cookies().get('session')?.value
 	const { data } = await api.get('/auth/profile', {
-		data: { token },
+		headers: {
+			Authorization: `Bearer ${token}`,
+		},
 	})
 
 	return (
